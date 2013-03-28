@@ -1,10 +1,10 @@
 <?php
 
-$max_id = file_get_contents("/abusolute/pass/to/max_id.txt");
+$max_id = file_get_contents("/abusolute/pass/to/max_id.txt");//cronで自動実行するために絶対パスで指定しなければいけない
 
 $db = new PDO('mysql:host=localhost;dbname=database name', 'user name', 'user password', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-$urls = $db->query("SELECT id, url, likes FROM popular_image WHERE id > ".$max_id);
+$urls = $db->query("SELECT id, url, likes FROM popular_image WHERE id > ".$max_id);//ここまで処理したという位置を事前に記録しておく
 $content = $urls->fetchAll(PDO::FETCH_ASSOC);
 
 $update = $db->prepare("UPDATE popular_image SET color_r = ?, color_g = ?, color_b = ? WHERE id = ?");
@@ -41,25 +41,9 @@ foreach($content as $data){
 		        $average = array("r" => round($red/$sq_size), "g" => round($green/$sq_size), "b" => round($blue/$sq_size));
 		        var_dump($average);
 				$update->execute(array($average["r"], $average["g"], $average["b"], $data["id"]));
-				file_put_contents("/absolute/pass/to/max_id.txt", intval($data["id"]));
-		        /*$ip = new ImagickPixel();
-		        $ip->setcolor($str_color);
-		        
-		        $draw->setFillColor($ip);    // Set up some colors to use for fill and outline
-		        $draw->setStrokeColor( new ImagickPixel( 'black' ) );
-		        $draw->setStrokeWidth(0);
-		        $draw->rectangle( $x, $y, $x+$size, $y+$size );
-		        echo "\n";*/
+				file_put_contents("/absolute/pass/to/max_id.txt", intval($data["id"]));//cronで自動実行するために絶対パスで指定しなければいけない
 		    }
 		}
-		/*
-		$nimage->drawImage( $draw );    // Apply the stuff from the draw class to the image canvas
-		
-		$nimage->setImageFormat('jpg');
-		
-		$nimage->writeimage("rola_mosaic.jpg");
-		 * 
-		 */
 	} else {
 		
 	}
