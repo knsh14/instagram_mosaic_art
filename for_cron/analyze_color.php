@@ -1,8 +1,8 @@
 <?php
 
-$max_id = file_get_contents("/var/www/kamata/insta_test/my_work/max_id.txt");
+$max_id = file_get_contents("/abusolute/pass/to/max_id.txt");
 
-$db = new PDO('mysql:host=localhost;dbname=klab', 'root', 'kaho1018', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+$db = new PDO('mysql:host=localhost;dbname=database name', 'user name', 'user password', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
 $urls = $db->query("SELECT id, url, likes FROM popular_image WHERE id > ".$max_id);
 $content = $urls->fetchAll(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ foreach($content as $data){
 		        $average = array("r" => round($red/$sq_size), "g" => round($green/$sq_size), "b" => round($blue/$sq_size));
 		        var_dump($average);
 				$update->execute(array($average["r"], $average["g"], $average["b"], $data["id"]));
-				file_put_contents("/var/www/kamata/insta_test/my_work/max_id.txt", intval($data["id"]));
+				file_put_contents("/absolute/pass/to/max_id.txt", intval($data["id"]));
 		        /*$ip = new ImagickPixel();
 		        $ip->setcolor($str_color);
 		        

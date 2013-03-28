@@ -64,7 +64,7 @@ WHERE color_r BETWEEN color_r-5 AND color_r+5 AND color_g BETWEEN color_g-5 AND 
 ORDER BY POWER( 10, 129 -  `color_r` ) + POWER( 10, 100 -  `color_g` ) + POWER( 10, 35 -  `color_b` ) , likes
  */
 //まずはデータベースに接続できるようにする 
-$db = new PDO('mysql:host=localhost;dbname=klab', 'root', 'kaho1018', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+$db = new PDO('mysql:host=localhost;dbname=database name', 'user name', 'user password', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
 //出力用のURLを格納しておくための2次元配列を準備しておく
 $assign_image_array_col = array();

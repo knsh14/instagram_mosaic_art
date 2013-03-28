@@ -1,7 +1,7 @@
 <?php
 
-$client_id = "9514285b99a94f4881dc0a166cef4030";
-$client_secret = "be02313e95c24e92bcf934d6b71f5db3";
+$client_id = "client id for this application";
+$client_secret = "client secret for this application";
 
 session_start();
 

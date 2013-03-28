@@ -1,5 +1,5 @@
 <?php
-		$db = new PDO('mysql:host=localhost;dbname=klab', 'root', 'kaho1018', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+		$db = new PDO('mysql:host=localhost;dbname=database name', 'user name', 'user password', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 		$stmt = $db->prepare('INSERT INTO popular_image (id, url, color_r,color_g,color_b,likes) VALUES (?,?,?,?,?,?)');
 		$cxContext = NULL;
 		define('CLIENT_ID', 'c0eabe7586214e62a05402e7b72f532b');
