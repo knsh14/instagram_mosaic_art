@@ -1,6 +1,6 @@
 <?php
 
-$max_id = file_get_contents("/var/www/kamata/insta_test/my_work/max_id.txt");
+$max_id = file_get_contents("/var/www/kamata/mosaic_art/for_cron/max_id.txt");
 
 $db = new PDO('mysql:host=localhost;dbname=klab', 'root', 'kaho1018', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
@@ -41,7 +41,7 @@ foreach($content as $data){
 		        $average = array("r" => round($red/$sq_size), "g" => round($green/$sq_size), "b" => round($blue/$sq_size));
 		        var_dump($average);
 				$update->execute(array($average["r"], $average["g"], $average["b"], $data["id"]));
-				file_put_contents("/var/www/kamata/insta_test/my_work/max_id.txt", intval($data["id"]));
+				file_put_contents("/var/www/kamata/mosaic_art/for_cron/max_id.txt", intval($data["id"]));
 		        /*$ip = new ImagickPixel();
 		        $ip->setcolor($str_color);
 		        
