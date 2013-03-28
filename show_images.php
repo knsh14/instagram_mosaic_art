@@ -36,4 +36,4 @@ foreach ($images->data as $image) {
 $objSmarty->assign('urls', $image_thumbnail_url_list);
 $_SESSION["user_image_urls"] = $image_big_size_url_list;
 // テンプレート出力
-$objSmarty->display('show_image.tpl');
+$objSmarty->display('show_images.tpl');
