@@ -9,7 +9,7 @@ if (empty($_GET['code'])) {
     // 認証前の準備
     $params = array(
         'client_id' => $client_id,
-        'redirect_uri' => 'http://133.2.195.66/kamata/insta_test/login.php',
+        'redirect_uri' => 'http://133.2.195.66/kamata/mosaic_art/login.php',
         'scope' => 'basic',
         'response_type' => 'code'
     );
@@ -25,7 +25,7 @@ if (empty($_GET['code'])) {
         'client_id' => $client_id,
         'client_secret' => $client_secret ,
         'code' => $_GET['code'],
-        'redirect_uri' => 'http://133.2.195.66/kamata/insta_test/login.php',
+        'redirect_uri' => 'http://133.2.195.66/kamata/mosaic_art/login.php',
         'grant_type' => 'authorization_code'
     );
     $url = "https://api.instagram.com/oauth/access_token";
